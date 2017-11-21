@@ -13,9 +13,9 @@ Såhär:
 
 {<br />
 &nbsp;&nbsp;"rules": {<br />
-    ".read": true,<br />
-    ".write": true<br />
-  }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;".read": true,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;".write": true<br />
+;&nbsp;&nbsp;}<br />
 }<br />
 
 

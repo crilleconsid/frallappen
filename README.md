@@ -1,10 +1,9 @@
 # Frallappen
-version 0.1
+// version 0.1
 
 Kör ni frukost på jobbet?
-Med frallappen kan du enkelt lägga en beställning på en fralla eller flera frallor. Totalen av antal beställda frallor gjorde visas, vilket underlättar när väl alla frallor ska beställas.
-
-Databas: Byggd med firebase
+Med frallappen kan du enkelt lägga en beställning på en fralla eller flera frallor för varje vardag i veckan. Totalen av antalet beställda frallor visas på frallappens startsida: /frallappen, vilket underlättar när väl alla frallor ska beställas.
+Historiken för alla beställningar som är gjorda med frallappen visas på adressen: /frallappen/info.
 
 # Hur man installerar och använder webappen
 1. Ladda ner eller Forka "frallappen".

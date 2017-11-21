@@ -12,7 +12,7 @@ Historiken för alla beställningar som är gjorda med frallappen visas på adre
 Såhär:
 
 {<br />
-  "rules": {<br />
+&nbsp;&nbsp;"rules": {<br />
     ".read": true,<br />
     ".write": true<br />
   }<br />

@@ -1,4 +1,5 @@
-![alt text](https://sornmo.se/frallappen/assets/img/logo-with-consid.svg) # Frallappen
+![alt text](https://sornmo.se/frallappen/assets/img/logo-with-consid.svg)
+# Frallappen
 // version 0.1
 
 Kör ni frukost på jobbet?

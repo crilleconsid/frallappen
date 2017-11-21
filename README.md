@@ -11,12 +11,12 @@ Historiken för alla beställningar som är gjorda med frallappen visas på adre
 3. På Firebase (https://firebase.google.com/): Gå till databas -> rules och ändra både "read" och "write" till "true", sedan spara.
 Såhär:
 
-{
-  "rules": {
-    ".read": true,
-    ".write": true
-  }
-}
+{<br />
+  "rules": {<br />
+    ".read": true,<br />
+    ".write": true<br />
+  }<br />
+}<br />
 
 
 4. Kopiera din firebasekod som finns under "Project Overview" sedan klicka på knappen "Add Firebase to your web app".

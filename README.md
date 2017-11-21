@@ -15,7 +15,7 @@ Såhär:
 &nbsp;&nbsp;"rules": {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;".read": true,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;".write": true<br />
-;&nbsp;&nbsp;}<br />
+;&nbsp;&nbsp; }<br />
 }<br />
 
 

@@ -1,0 +1,52 @@
+.btn-order {
+	position: relative;
+	margin: 15px 0;
+	height: 65px;
+	width: 100%;
+    display: inline-block;
+
+	.icon {
+		position: absolute;
+		top: 0px;
+		left: 0;
+		right: 0;
+		font-size: 60px;
+		-ms-transform: scale(0); /* IE 9 */
+		-webkit-transform: scale(0); /* Safari */
+		transform: scale(0);
+		-webkit-transition: 0.2s; /* Safari */
+	    transition: 0.2s;
+	    -webkit-transition-delay: 0.1s; /* Safari */
+    	transition-delay: 0.1s;
+	    line-height: 0;
+	}
+
+	.btn {
+		margin: 0;
+		font-size: 18px;
+		height: 64px;
+	    line-height: 64px;
+	    -webkit-transition: 0.2s; /* Safari */
+	    transition: 0.2s;
+	    -ms-transform: scale(1); /* IE 9 */
+	    -webkit-transform: scale(1); /* Safari */
+	    transform: scale(1);
+	}
+
+	&.checked {
+		pointer-events: none;
+
+		.btn {
+			opacity: 0;
+			-ms-transform: scale(0.5); /* IE 9 */
+			-webkit-transform: scale(0.5); /* Safari */
+			transform: scale(0.5);
+		}
+
+		.icon {
+			-ms-transform: scale(1); /* IE 9 */
+		    -webkit-transform: scale(1); /* Safari */
+		    transform: scale(1); 
+		}
+	}
+}

@@ -1,0 +1,40 @@
+.top-content {
+	background: #e7e7e7;
+	color: #777;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+.bottom-content {
+	color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	.pointer {
+		opacity: 1;
+		-webkit-transition: 0.2s; /* Safari */
+	    transition: 0.2s;
+
+	    &:before {
+			-webkit-transition: 0.2s; /* Safari */
+    		transition: 0.2s;
+			-ms-transform: rotate(0deg); /* IE 9 */
+			-webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+			transform: rotate(0deg);
+		}
+
+		&.active {
+
+			&:before {
+				-webkit-transition: 0.2s; /* Safari */
+	    		transition: 0.2s;
+				-ms-transform: rotate(180deg); /* IE 9 */
+				-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+				transform: rotate(180deg);
+			}
+		}
+	}
+}

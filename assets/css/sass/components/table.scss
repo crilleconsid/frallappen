@@ -1,0 +1,62 @@
+table {
+	td, th {
+		padding: 10px;
+	}
+	tr {
+		&:nth-child(odd) {
+			td {
+				background: #b75154;
+			}
+		}
+	}
+
+	.icon {
+		-webkit-user-select: none;  /* Chrome all / Safari all */
+		-moz-user-select: none;     /* Firefox all */
+		-ms-user-select: none;      /* IE 10+ */
+		user-select: none;
+		font-size: 20px;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline;
+			text-underline-position: under;
+			display: inline-block;
+			width: 100%;
+		}
+
+		&:after {
+			font-family: "Ionicons";
+		    position: relative;
+		    display: inline-block;
+		    margin-left: 10px;
+    		font-size: 18px;
+		}
+		&.asc {
+			&:after {
+			    content: "\f3d0";
+		        top: 4px;
+			}
+		}
+		&.desc {
+			&:after {
+			    content: "\f3d8";
+		        top: -2px;
+			}
+		}
+		&.asc.desc {
+			position: relative;
+			&:after {
+			    content: "\f271";
+			    -ms-transform: rotate(90deg); /* IE 9 */
+			    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+			    transform: rotate(90deg);
+			    font-size: 18px;
+			    font-weight: 400;
+			    margin-left: 7px;
+			    top: 0px;
+			}
+
+		}
+	}
+}

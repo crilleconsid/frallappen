@@ -1,0 +1,30 @@
+.icon {
+	font-size: 28px;
+
+	&.large {
+		font-size: 40px;
+	}
+
+	&.ion-ios-arrow-down {
+		opacity: 0.7;
+		position :relative;
+		-webkit-animation: mymove 1.3s infinite ease-out; /* Safari 4.0 - 8.0 */
+		animation: mymove 1.3s infinite ease-out;
+		position: relative;
+		top: -10px;
+	}
+
+	/* Safari 4.0 - 8.0 */
+	@-webkit-keyframes mymove {
+		0%   {top: -10px;}
+		25%  {top: 10px;}
+		100% {top: -10px;}
+	}
+
+	/* Standard syntax */
+	@keyframes mymove {
+		0%   {top: -10px;}
+		25%  {top: 10px;}
+		100% {top: -10px;}
+	}
+}

@@ -1,4 +1,4 @@
-![alt text](https://sornmo.se/frallappen/assets/img/logo-with-consid.svg?style=width=100)
+![alt text](https://sornmo.se/frallappen/assets/img/logo-with-consid.svg)
 # Frallappen
 // version 0.1
 

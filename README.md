@@ -19,6 +19,6 @@ Såhär:
 }<br />
 
 
-4. Kopiera din firebasekod som finns under "Project Overview" sedan klicka på knappen "Add Firebase to your web app".
+4. Kopiera din firebasekod som finns under "Project Overview" sedan när du klickar på knappen "Add Firebase to your web app".
 5. Klistra in din firebasekod och ersätt all kod i filen, "config.js" som ligger i katalogen: frallappen/assets/js/config.js
 6. Klart!

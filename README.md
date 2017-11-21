@@ -11,7 +11,7 @@ Historiken för alla beställningar som är gjorda med frallappen visas på adre
 1. Ladda ner eller Forka "frallappen".
 2. Skapa ett projekt med valfritt namn på firebase, https://firebase.google.com/
 3. På Firebase (https://firebase.google.com/): Gå till databas -> rules och ändra både "read" och "write" till "true", sedan spara.
-Såhär:
+<br />Så här ska det se ut:<br />
 {<br />
 &nbsp;&nbsp;"rules": {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;".read": true,<br />

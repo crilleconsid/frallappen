@@ -1,4 +1,4 @@
-![alt text](https://github.com/crilleconsid/frallappen/blob/master/assets/img/logo-with-consid.svg)
+![alt text](https://raw.githubusercontent.com/crilleconsid/frallappen/master/assets/img/logo-with-consid.svg)
 # Frallappen
 // version 0.1
 

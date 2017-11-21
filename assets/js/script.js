@@ -85,7 +85,7 @@ setInterval(function(){
 	// Mellan 09:00-23:59 på vardagar beställer man till dagen efter
 	var startOrderTime1 = moment('09:00', "HH:mm");
 	var endOrderTime1 = moment('23:59', "HH:mm");
-	var tomorrow  = moment().add(1,'days').format('dddd Do MMMM');
+	var tomorrow  = moment().add(1, 'days').format('dddd Do MMMM');
 
 	// Mellan 00:00-07:00 på vardagar beställer man till samma dag
 	var startOrderTime2 = moment('00:00', "HH:mm");
@@ -104,7 +104,7 @@ setInterval(function(){
 	}
 	if (moment().isBetween(startOrderTime2, endOrderTime2)) {
 		$('#orderDay').html(today);
-		var date = moment().add('days', 1).format('L');
+		var date = moment().add(1, 'days').format('L');
 	}
 	
 
@@ -150,7 +150,7 @@ if ( (moment().isoWeekday() == 1 && isBetweenOnOff) || (moment().isoWeekday() ==
 // Mellan 09:00-23:59 på vardagar beställer man till dagen efter
 var startOrderTime1 = moment('09:00', "HH:mm");
 var endOrderTime1 = moment('23:59', "HH:mm");
-var tomorrow  = moment().add(1,'days').format('dddd Do MMMM');
+var tomorrow  = moment().add(1, 'days').format('dddd Do MMMM');
 
 // Mellan 00:00-07:00 på vardagar beställer man till samma dag
 var startOrderTime2 = moment('00:00', "HH:mm");
@@ -162,7 +162,7 @@ var startFriday = moment('09:00', "HH:mm");
 var endFriday = moment('23:59', "HH:mm");
 
 if (moment().isBetween(startOrderTime1, endOrderTime1)) {
-	var date = moment().add('days', 1).format('L');
+	var date = moment().add(1, 'days').format('L');
 }
 if (moment().isBetween(startOrderTime2, endOrderTime2)) {
 	var date = moment().format('L');
@@ -180,11 +180,15 @@ var database = firebase.database();
 dbRef = firebase.database().ref().child('date').child(date);
 
 dbRef.on('value', snapshot => {
-	var key = Object.keys(snapshot.val());
+	if (snapshot.val() === null) {
+		$('#quantity').html('0');
+	} else {
+		var key = Object.keys(snapshot.val());
 
-	$('#quantity').removeClass('loading');
-	//$('#quantity').html( key.length );
-	$('#quantity').html( snapshot.val() );
+		$('#quantity').removeClass('loading');
+		//$('#quantity').html( key.length );
+		$('#quantity').html( snapshot.val() );
+	}
 });
 
 
@@ -197,7 +201,7 @@ $( "#submitBtn" ).click(function() {
 	// Mellan 09:00-23:59 på vardagar beställer man till dagen efter
 	var startOrderTime1 = moment('09:00', "HH:mm");
 	var endOrderTime1 = moment('23:59', "HH:mm");
-	var tomorrow  = moment().add(1,'days').format('dddd Do MMMM');
+	var tomorrow  = moment().add(1, 'days').format('dddd Do MMMM');
 
 	// Mellan 00:00-07:00 på vardagar beställer man till samma dag
 	var startOrderTime2 = moment('00:00', "HH:mm");
@@ -209,7 +213,7 @@ $( "#submitBtn" ).click(function() {
 	var endFriday = moment('23:59', "HH:mm");
 
 	if (moment().isBetween(startOrderTime1, endOrderTime1)) {
-		var date = moment().add('days', 1).format('L');
+		var date = moment().add( 1, 'days').format('L');
 	}
 	if (moment().isBetween(startOrderTime2, endOrderTime2)) {
 		var date = moment().format('L');

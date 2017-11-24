@@ -81,7 +81,7 @@ setInterval(function(){
 //--------- BESTÄLLNINGSTIDER ---------//
 /////////////////////////////////////////
 
-setInterval(function(){
+function startOrderTime() {
 	// Mellan 09:00-23:59 på vardagar beställer man till dagen efter
 	var startOrderTime1 = moment('09:00', "HH:mm");
 	var endOrderTime1 = moment('23:59', "HH:mm");
@@ -89,7 +89,7 @@ setInterval(function(){
 
 	// Mellan 00:00-07:00 på vardagar beställer man till samma dag
 	var startOrderTime2 = moment('00:00', "HH:mm");
-	var endOrderTime2 = moment('07:00', "HH:mm");
+	var endOrderTime2 = moment('06:59', "HH:mm");
 
 	var today = moment().format('dddd Do MMMM');
 
@@ -112,31 +112,45 @@ setInterval(function(){
 	if ( (moment().isoWeekday() == 5 && moment().isBetween(startFriday, endFriday)) || (moment().isoWeekday() == 6 || moment().isoWeekday() == 7) ) {
 		var nextMonday = moment().startOf('week').isoWeekday(1 + 7).format('dddd Do MMMM');
 		$('#orderDay').html(nextMonday);
-		var date = moment().day(1).format('L');
+		var date = moment().startOf('week').isoWeekday(1 + 7).format('L');
 	}
+}
+
+
+setInterval(function(){
+	startOrderTime();
 }, 1000);
-
-
 
 //////////////////////////////////////////////
 //--------- STÄNG AV BESTÄLLNINGAR ---------//
 //////////////////////////////////////////////
 
-// Mellan 07:00-09:00 är knappen avstängd
-var startOrderOFF = moment('07:00', "HH:mm");
-var endOrderOFF = moment('08:59', "HH:mm");
-var isBetweenOnOff = moment().isBetween(startOrderOFF, endOrderOFF);
- 
-// function checkOrderOffOn() {
-if ( (moment().isoWeekday() == 1 && isBetweenOnOff) || (moment().isoWeekday() == 2 && isBetweenOnOff) || (moment().isoWeekday() == 3 && isBetweenOnOff) || (moment().isoWeekday() == 4 && isBetweenOnOff) || (moment().isoWeekday() == 5 && isBetweenOnOff) ) {
-    $('#submitBtn').addClass('off');
-    $('.info-text, .pointer, #submitBtn').hide();
-    $('.heading').html('<div class="icon ion-information-circled"></div>Inga fler beställningar<br>går att göra idag');
-} else {
-    $('#submitBtn').removeClass('off');
-    $('.info-text, .pointer, #submitBtn').show();
-    $('.heading').html('BESTÄLL DIN FRALLA HÄR');
+function startOrderOnOff() {
+	// Mellan 07:00-09:00 är knappen avstängd
+	var startOrderOFF = moment('07:00', "HH:mm");
+	var endOrderOFF = moment('08:59', "HH:mm");
+	var isBetweenOnOff = moment().isBetween(startOrderOFF, endOrderOFF);
+
+	if ( (moment().isoWeekday() == 1 && isBetweenOnOff) || (moment().isoWeekday() == 2 && isBetweenOnOff) || (moment().isoWeekday() == 3 && isBetweenOnOff) || (moment().isoWeekday() == 4 && isBetweenOnOff) || (moment().isoWeekday() == 5 && isBetweenOnOff) ) {
+	    $('#submitBtn').addClass('off');
+	    $('.info-text, .pointer, #submitBtn').hide();
+	    $('.heading').html('<div class="icon ion-information-circled"></div>Inga fler beställningar<br>går att göra idag');
+
+	    // COOKIES - Kollar av hur många klick just DU gör
+	    var exp = $.cookie('exp', 0);
+    	$("#clicks").text('0');
+
+	} else {
+	    $('#submitBtn').removeClass('off');
+	    $('.info-text, .pointer, #submitBtn').show();
+		$('.heading:not(.on)').html('BESTÄLL DIN FRALLA HÄR');
+	}
 }
+startOrderOnOff();
+
+setInterval(function(){
+	startOrderOnOff();
+}, 1000);
 
 
 /*******************
@@ -154,7 +168,7 @@ var tomorrow  = moment().add(1, 'days').format('dddd Do MMMM');
 
 // Mellan 00:00-07:00 på vardagar beställer man till samma dag
 var startOrderTime2 = moment('00:00', "HH:mm");
-var endOrderTime2 = moment('07:00', "HH:mm");
+var endOrderTime2 = moment('06:59', "HH:mm");
 var today = moment().format('dddd Do MMMM');
 
 // Från 09:00 på fredag till 23:59 på söndag så beställer man till måndagen veckan efter
@@ -171,7 +185,7 @@ if (moment().isBetween(startOrderTime2, endOrderTime2)) {
 if ( (moment().isoWeekday() == 5 && moment().isBetween(startFriday, endFriday)) || (moment().isoWeekday() == 6 || moment().isoWeekday() == 7) ) {
 	var nextMonday = moment().startOf('week').isoWeekday(1 + 7).format('dddd Do MMMM');
 	$('#orderDay').html(nextMonday);
-	var date = moment().day(1).format('L');
+	var date = moment().startOf('week').isoWeekday(1 + 7).format('L');
 }
 
 // Get a reference to the database service
@@ -191,6 +205,14 @@ dbRef.on('value', snapshot => {
 	}
 });
 
+// COOKIES - Kollar av hur många klick just DU gör
+function showExp(exp) {
+	$("#clicks").text(exp);
+}
+var exp = $.cookie("exp");
+exp = (exp)?parseInt(exp,10):0;
+showExp(exp);
+
 
 $( "#submitBtn" ).click(function() {
 
@@ -205,7 +227,7 @@ $( "#submitBtn" ).click(function() {
 
 	// Mellan 00:00-07:00 på vardagar beställer man till samma dag
 	var startOrderTime2 = moment('00:00', "HH:mm");
-	var endOrderTime2 = moment('07:00', "HH:mm");
+	var endOrderTime2 = moment('06:59', "HH:mm");
 	var today = moment().format('dddd Do MMMM');
 
 	// Från 09:00 på fredag till 23:59 på söndag så beställer man till måndagen veckan efter
@@ -222,7 +244,7 @@ $( "#submitBtn" ).click(function() {
 	if ( (moment().isoWeekday() == 5 && moment().isBetween(startFriday, endFriday)) || (moment().isoWeekday() == 6 || moment().isoWeekday() == 7) ) {
 		var nextMonday = moment().startOf('week').isoWeekday(1 + 7).format('dddd Do MMMM');
 		$('#orderDay').html(nextMonday);
-		var date = moment().day(1).format('L');
+		var date = moment().startOf('week').isoWeekday(1 + 7).format('L');
 	}
 
 	var quantityText = parseInt($('#quantity').text());
@@ -230,20 +252,23 @@ $( "#submitBtn" ).click(function() {
 	//var quantity = firebase.database().ref().child('Quantity').push(1);
 	var quantity = firebase.database().ref().child('date').child(date).set(1 + quantityText);
 	
-	// Kollar av hur många klick just DU gör
-	var clicks = $('#clicks').html(function(i, val) { return val*1+1 });
 
 	$(this).parent('.btn-order').addClass('checked');
-	if ($('#clicks').html() == 1 ) {
-		$('.heading').hide().html('DIN FRALLA ÄR BESTÄLLD!').fadeIn('slow');
+	if ($('#clicks').html() === '0' ) {
+		$('.heading').addClass('on').hide().html('DIN FRALLA ÄR BESTÄLLD!').fadeIn('slow');
 	} else {
-		$('.heading').hide().html('EN TILL FRALLA ÄR BESTÄLLD!').fadeIn('slow');
+		$('.heading').addClass('on').hide().html('EN TILL FRALLA ÄR BESTÄLLD!').fadeIn('slow');
 	}
 	$('.pointer').addClass('active');
 	setTimeout(function(){
 		$('#submitBtn').parent('.btn-order').removeClass('checked');
-		$('.heading').hide().html('BESTÄLL DIN FRALLA HÄR').fadeIn('slow');
+		$('.heading').removeClass('on').hide().html('BESTÄLL DIN FRALLA HÄR').fadeIn('slow');
 		$('.pointer').removeClass('active');
 	}, 2500);
 
+
+	// Kollar av hur många klick just DU gör
+	exp++;
+    $.cookie("exp",exp);
+    showExp(exp);
 });

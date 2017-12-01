@@ -20,5 +20,6 @@ Historiken för alla beställningar som är gjorda med frallappen visas på adre
 }<br />
 
 4. Kopiera din firebasekod som finns under "Project Overview" sedan när du klickar på knappen "Add Firebase to your web app".
-5. Klistra in din firebasekod och ersätt all kod i filen, "config.js" som ligger i katalogen: frallappen/assets/js/config.js
-6. Klart!
+5. Klistra in din firebasekod i filen, "config-example.js" som ligger i katalogen: frallappen/assets/js/config-example.js
+6. Ändra sedan namnet på "config-example.js" till "config.js"
+7. Klart!

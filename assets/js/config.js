@@ -1,5 +1,4 @@
 // Initialize Firebase
-// Initialize Firebase
 var config = {
 	apiKey: "YOUR CONFIG HERE",
 	authDomain: "YOUR CONFIG HERE",

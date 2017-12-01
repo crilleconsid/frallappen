@@ -1,13 +1,17 @@
 // Initialize Firebase
 var config = {
-	apiKey: "AIzaSyBNebgzr-MZH8K55utbCSbribgfYE6twJg",
-	authDomain: "frallapp-39aa4.firebaseapp.com",
-	databaseURL: "https://frallapp-39aa4.firebaseio.com",
-	projectId: "frallapp-39aa4",
-	storageBucket: "frallapp-39aa4.appspot.com",
-	messagingSenderId: "1077381395124"
+	apiKey: "YOUR CONFIG HERE",
+	authDomain: "YOUR CONFIG HERE",
+	databaseURL: "YOUR CONFIG HERE",
+	projectId: "YOUR CONFIG HERE",
+	storageBucket: "YOUR CONFIG HERE",
+	messagingSenderId: "YOUR CONFIG HERE"
 };
+<<<<<<< HEAD
 
 if (firebase.apps.length === 0) {
     firebase.initializeApp(config);
 }
+=======
+firebase.initializeApp(config);
+>>>>>>> 84d844d9609efb0f792401551300db48f895f8d9

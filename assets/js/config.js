@@ -7,4 +7,7 @@ var config = {
 	storageBucket: "frallapp-39aa4.appspot.com",
 	messagingSenderId: "1077381395124"
 };
-firebase.initializeApp(config);
+
+if (firebase.apps.length === 0) {
+    firebase.initializeApp(config);
+}

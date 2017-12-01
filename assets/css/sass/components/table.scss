@@ -1,3 +1,8 @@
+/*
+** Table 
+*/
+
+
 table {
 	td, th {
 		padding: 10px;
@@ -48,9 +53,7 @@ table {
 			position: relative;
 			&:after {
 			    content: "\f271";
-			    -ms-transform: rotate(90deg); /* IE 9 */
-			    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-			    transform: rotate(90deg);
+				@include rotate(90);
 			    font-size: 18px;
 			    font-weight: 400;
 			    margin-left: 7px;

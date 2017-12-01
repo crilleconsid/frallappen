@@ -1,0 +1,61 @@
+.menu-btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+
+    i {
+        font-size: 35px;
+    }
+
+}
+
+.menu {
+	background: #e7e7e7;
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+    left: 0;
+    height: 100%;
+    top: 0;
+    padding: 20px 0;
+    opacity: 0;
+    pointer-events: none;
+
+    &.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .icon {
+        vertical-align: bottom;
+    }
+    #email {
+        font-weight: bold;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        display: table;
+        width: 100%;
+    	li {
+    		a {
+    			padding: 15px;
+    			border-bottom: 1px solid #ca5e61;
+    			color: #ca5e61;
+    			float: left;
+    			width: 100%;
+
+    		}
+			&:last-child {
+
+				a {
+					border-bottom: 0;
+				}
+			}
+    	}
+    }
+}

@@ -8,6 +8,7 @@ var config = {
 	messagingSenderId: "1077381395124"
 };
 
+// Check if firebase exist
 if (firebase.apps.length === 0) {
     firebase.initializeApp(config);
 }

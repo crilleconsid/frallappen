@@ -7,11 +7,4 @@ var config = {
 	storageBucket: "YOUR CONFIG HERE",
 	messagingSenderId: "YOUR CONFIG HERE"
 };
-<<<<<<< HEAD
-
-if (firebase.apps.length === 0) {
-    firebase.initializeApp(config);
-}
-=======
 firebase.initializeApp(config);
->>>>>>> 84d844d9609efb0f792401551300db48f895f8d9

@@ -52,6 +52,7 @@
 		</div>
 	</div>
 </div>
+<!-- <div id="clicks"></div> -->
 
 <?php include 'includes/footer.php' ?>
 

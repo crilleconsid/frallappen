@@ -138,9 +138,8 @@ function startOrderOnOff() {
 
 	    // COOKIES - Kollar av hur många klick just DU gör
 	    var exp = $.cookie('exp', 0);
-    	$("#clicks").text('0');
-
-	} else {
+    
+    } else {
 	    $('#submitBtn').removeClass('off');
 	    $('.info-text, .pointer, #submitBtn').show();
 		$('.heading:not(.on)').html('BESTÄLL DIN FRALLA HÄR');
@@ -258,6 +257,7 @@ $( "#submitBtn" ).click(function() {
 		$('.heading').addClass('on').hide().html('DIN FRALLA ÄR BESTÄLLD!').fadeIn('slow');
 	} else {
 		$('.heading').addClass('on').hide().html('EN TILL FRALLA ÄR BESTÄLLD!').fadeIn('slow');
+
 	}
 	$('.pointer').addClass('active');
 	setTimeout(function(){
@@ -271,4 +271,19 @@ $( "#submitBtn" ).click(function() {
 	exp++;
     $.cookie("exp",exp);
     showExp(exp);
+
+	// Rensa cookies var 10:e minut
+	var removeCookies = function(){
+		var exp = $.cookie('exp', 0);
+		$('#clicks').text('0');
+	}
+	var timer = null;
+	if (timer != null) {
+		window.clearTimeout(timer); 
+		timer = null;
+	}
+	else {
+		timer = window.setTimeout(removeCookies, 600000);
+	}
+ 
 });
